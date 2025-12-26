@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Median Starting Salaries (Computer Science) - Canadian Citizen Outcomes — 2025 USD</title>
+    <title>Income Predictive Power by Major (Canada)</title>
     <style>
         * {
             margin: 0;
@@ -19,19 +19,37 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             background: white;
-            padding: 30px;
+            padding: 40px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         h1 {
             color: #202122;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-            font-weight: 400;
+            margin-bottom: 30px;
+            font-size: 2em;
+            font-weight: 600;
+        }
+
+        .intro {
+            background-color: #e7f3ff;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .intro p {
+            margin: 0;
+            color: #004085;
+            font-size: 1.1em;
+        }
+
+        .intro strong {
+            color: #002752;
         }
 
         table {
@@ -51,34 +69,10 @@
             font-weight: 600;
             color: #202122;
             border-bottom: 2px solid #a7d7f9;
-            cursor: pointer;
-            user-select: none;
-            position: relative;
-            white-space: nowrap;
-        }
-
-        th:hover {
-            background-color: #d0e3f0;
-        }
-
-        th.sortable::after {
-            content: ' ↕';
-            opacity: 0.5;
-            font-size: 0.8em;
-        }
-
-        th.sort-asc::after {
-            content: ' ↑';
-            opacity: 1;
-        }
-
-        th.sort-desc::after {
-            content: ' ↓';
-            opacity: 1;
         }
 
         td {
-            padding: 10px 12px;
+            padding: 12px;
             border-bottom: 1px solid #eaecf0;
         }
 
@@ -94,65 +88,25 @@
             background-color: #eaecf0;
         }
 
-        .number {
-            text-align: right;
+        .major {
+            font-weight: 500;
+            color: #202122;
         }
 
-        .salary {
-            font-weight: 500;
+        .score {
+            text-align: center;
+            font-weight: 600;
             color: #0066cc;
         }
 
-        .country {
+        .why {
             color: #54595d;
-            font-size: 0.9em;
-        }
-
-        .formula-section {
-            background-color: #f8f9fa;
-            border-left: 4px solid #0066cc;
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 4px;
-        }
-
-        .formula-section h2 {
-            color: #202122;
-            font-size: 1.3em;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .formula-box {
-            background-color: white;
-            padding: 15px;
-            border-radius: 4px;
-            margin: 10px 0;
-            font-family: 'Courier New', monospace;
-            border: 1px solid #eaecf0;
-        }
-
-        .formula-label {
-            font-weight: 600;
-            color: #202122;
-            margin-bottom: 5px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-        }
-
-        .formula-vars {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #eaecf0;
-        }
-
-        .formula-vars p {
-            margin: 5px 0;
-            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
         }
 
         @media (max-width: 768px) {
             .container {
-                padding: 15px;
+                padding: 20px;
             }
 
             table {
@@ -167,1302 +121,82 @@
 </head>
 <body>
     <div class="container">
-        <h1>Median Starting Salaries (Computer Science)<br>Canadian Citizen Outcomes — 2025 USD</h1>
-        <p style="margin-bottom: 20px; color: #54595d;">
-            <a href="https://www.collegetransitions.com/dataverse/median-starting-salaries-computer-science/" target="_blank" style="color: #0066cc; text-decoration: none;">Source: College Transitions Dataverse</a>
-        </p>
+        <h1>🇨🇦 Income Predictive Power by Major (Canada)</h1>
         
-        <div class="formula-section">
-            <h2>Core Formula (Canadian Citizen Median, 2025 USD)</h2>
-            
-            <div class="formula-box">
-                <div class="formula-label">Canadian Median = C + 0.5 × p × (U − C)</div>
-            </div>
-            
-            <div class="formula-vars">
-                <p><strong>Where:</strong></p>
-                <p>C = 75,000 (Canada CS market median, 2025 USD)</p>
-                <p>p = 0.30 (share working in the U.S. by year ~2)</p>
-                <p>U = USDOE_2023 × 1.061</p>
-            </div>
-            
-            <div class="formula-box" style="margin-top: 15px;">
-                <div class="formula-label">Combined Single-Line Formula:</div>
-                <div style="margin-top: 8px;">Canadian Median = 75,000 + 0.5 × 0.30 × ((USDOE_2023 × 1.061) − 75,000)</div>
-            </div>
-            
-            <div class="formula-box" style="margin-top: 15px;">
-                <div class="formula-label">Google Sheets / Excel Formula:</div>
-                <div style="margin-top: 8px; color: #0066cc;">=75000 + 0.5*0.30*((C2*1.061)-75000)</div>
-            </div>
-            
-            <div class="formula-box" style="margin-top: 10px;">
-                <div class="formula-label">With Optional Rounding:</div>
-                <div style="margin-top: 8px; color: #0066cc;">=ROUND(75000 + 0.5*0.30*((C2*1.061)-75000), -3)</div>
-            </div>
+        <div class="intro">
+            <p><strong>Major is ~40 percentage points more predictive than school name (early career)</strong></p>
+            <p style="margin-top: 10px; font-size: 0.95em;">
+                Major: ~70% explanatory power<br>
+                School name: ~30% explanatory power
+            </p>
         </div>
-        
-        <div class="formula-section" style="margin-top: 30px;">
-            <h2>General Engineering — Model Assumptions (Canadian Citizen)</h2>
-            
-            <div class="formula-box">
-                <div class="formula-label">Engineering Median = Cₑ + 0.5 × pₑ × (Uₑ − Cₑ)</div>
-            </div>
-            
-            <div class="formula-vars">
-                <p><strong>Where:</strong></p>
-                <p>Cₑ = 70,000 (Canada general engineering median, 2025 USD)</p>
-                <p>pₑ = 0.25 (share working in the U.S. by year ~2)</p>
-                <p>Uₑ = USDOE_2023 Engineering × 1.061</p>
-            </div>
-            
-            <div class="formula-box" style="margin-top: 15px;">
-                <div class="formula-label">Combined Single-Line Formula:</div>
-                <div style="margin-top: 8px;">Engineering Median = 70,000 + 0.5 × 0.25 × ((USDOE_2023 Engineering × 1.061) − 70,000)</div>
-            </div>
-            
-            <div class="formula-box" style="margin-top: 15px;">
-                <div class="formula-label">Google Sheets / Excel Formula:</div>
-                <div style="margin-top: 8px; color: #0066cc;">=70000 + 0.5*0.25*((D2*1.061)-70000)</div>
-                <div style="margin-top: 8px; font-size: 0.9em; color: #54595d;">(where D2 is the USDOE Engineering 2023 median)</div>
-            </div>
-            
-            <div class="formula-box" style="margin-top: 10px;">
-                <div class="formula-label">With Optional Rounding:</div>
-                <div style="margin-top: 8px; color: #0066cc;">=ROUND(70000 + 0.5*0.25*((D2*1.061)-70000), -3)</div>
-            </div>
-            
-            <div style="margin-top: 15px; padding: 12px; background-color: #fff3cd; border-left: 4px solid #ffc107; border-radius: 4px;">
-                <p style="margin: 0; color: #856404; font-size: 0.9em;">
-                    <strong>⚠️ Missing Input Data:</strong> To calculate Engineering medians, we need the <strong>USDOE_2023 Engineering median</strong> for each institution. Currently, we only have Computer Science data. Once you have the Engineering salary data from College Transitions or USDOE, the formula above can calculate the Canadian Citizen medians.
-                </p>
-            </div>
-            
-            <div style="margin-top: 15px; padding: 12px; background-color: #e7f3ff; border-left: 4px solid #0066cc; border-radius: 4px;">
-                <p style="margin: 0; color: #004085; font-size: 0.9em;">
-                    <strong>Note:</strong> Engineering has a lower Canadian anchor (70k vs 75k for CS) and lower U.S. pull (0.25 vs 0.30 for CS) due to fewer TN-eligible roles, more licensing requirements, and less U.S. startup/Big Tech pull early in career.
-                </p>
-            </div>
-        </div>
-        
-        <table id="canadianTable">
+
+        <table>
             <thead>
                 <tr>
-                    <th class="sortable" data-sort="institution">Institution</th>
-                    <th class="sortable" data-sort="country">Country of School</th>
-                    <th class="sortable number" data-sort="salary">Computer Science - Canadian Citizen Median (2025 USD)</th>
-                    <th class="sortable number" data-sort="engineering">General Engineering - Canadian Citizen Median (2025 USD)</th>
+                    <th>Major</th>
+                    <th style="text-align: center;">Predictor Strength (out of 10)</th>
+                    <th>Why</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Carnegie Mellon University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$95,000</td>
-                    <td class="number salary">—</td>
+                    <td class="major">Software Engineering (SWE)</td>
+                    <td class="score">9.5 / 10</td>
+                    <td class="why">Tightest coupling to high-paying software roles; least ambiguity</td>
                 </tr>
                 <tr>
-                    <td>Stanford University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$98,000</td>
-                    <td class="number salary">—</td>
+                    <td class="major">Computer Science (CS)</td>
+                    <td class="score">9.0 / 10</td>
+                    <td class="why">Very strong signal; slightly more variance than SWE</td>
                 </tr>
                 <tr>
-                    <td>Massachusetts Institute of Technology</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$96,000</td>
-                    <td class="number salary">—</td>
+                    <td class="major">Computer Engineering (Comp Eng / CE)</td>
+                    <td class="score">8.5 / 10</td>
+                    <td class="why">Strong overlap with SWE/CS, but diluted by hardware/firmware paths</td>
                 </tr>
                 <tr>
-                    <td>University of California, Berkeley</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$94,000</td>
-                    <td class="number salary">—</td>
+                    <td class="major">Electrical Engineering (EE)</td>
+                    <td class="score">7.5 / 10</td>
+                    <td class="why">Solid, regulated, slower ramp; fewer pure software exits</td>
                 </tr>
                 <tr>
-                    <td>Cornell University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$92,000</td>
-                    <td class="number salary">—</td>
+                    <td class="major">Mechanical Engineering (MECH)</td>
+                    <td class="score">6.5 / 10</td>
+                    <td class="why">Stable but capped early; industry-dependent</td>
                 </tr>
                 <tr>
-                    <td>University of Illinois Urbana-Champaign</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$90,000</td>
-                    <td class="number salary">—</td>
+                    <td class="major">Finance</td>
+                    <td class="score">6.0 / 10</td>
+                    <td class="why">Bimodal outcomes; many average, few very high</td>
                 </tr>
                 <tr>
-                    <td>University of Washington Seattle</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$89,000</td>
-                    <td class="number salary">—</td>
+                    <td class="major">Economics</td>
+                    <td class="score">5.5 / 10</td>
+                    <td class="why">Weak alone; strong only when converted to finance/grad school</td>
                 </tr>
                 <tr>
-                    <td>University of California San Diego</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$86,000</td>
-                    <td class="number salary">—</td>
+                    <td class="major">Business (general)</td>
+                    <td class="score">4.5 / 10</td>
+                    <td class="why">Employer + role dominate, not the major</td>
                 </tr>
                 <tr>
-                    <td>Purdue University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$85,000</td>
-                    <td class="number salary">—</td>
+                    <td class="major">Mathematics</td>
+                    <td class="score">4.0 / 10</td>
+                    <td class="why">Abstract; income depends on what you pivot into</td>
                 </tr>
                 <tr>
-                    <td>Boston University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$84,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>University of Waterloo</td>
-                    <td class="country">Canada</td>
-                    <td class="number salary">$92,000</td>
-                </tr>
-                <tr>
-                    <td>University of Toronto</td>
-                    <td class="country">Canada</td>
-                    <td class="number salary">$88,000</td>
-                </tr>
-                <tr>
-                    <td>University of British Columbia</td>
-                    <td class="country">Canada</td>
-                    <td class="number salary">$86,000</td>
-                </tr>
-                <tr>
-                    <td>McGill University</td>
-                    <td class="country">Canada</td>
-                    <td class="number salary">$84,000</td>
-                </tr>
-                <tr>
-                    <td>Simon Fraser University</td>
-                    <td class="country">Canada</td>
-                    <td class="number salary">$80,000</td>
-                </tr>
-                <tr>
-                    <td>McMaster University</td>
-                    <td class="country">Canada</td>
-                    <td class="number salary">$79,000</td>
-                </tr>
-                <tr>
-                    <td>University of Alberta</td>
-                    <td class="country">Canada</td>
-                    <td class="number salary">$78,000</td>
-                </tr>
-                <tr>
-                    <td>University of Calgary</td>
-                    <td class="country">Canada</td>
-                    <td class="number salary">$76,000</td>
-                </tr>
-                <tr>
-                    <td>University of Ottawa</td>
-                    <td class="country">Canada</td>
-                    <td class="number salary">$74,000</td>
-                </tr>
-                <tr>
-                    <td>Carleton University</td>
-                    <td class="country">Canada</td>
-                    <td class="number salary">$72,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Brown University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$88,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Harvey Mudd College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$86,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Pomona College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$81,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Harvard University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$81,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>University of Pennsylvania</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$80,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Dartmouth College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$77,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Rose-Hulman Institute of Technology</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$77,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Duke University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$75,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Bowdoin College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$74,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Columbia University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$74,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Vanderbilt University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$73,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Washington University in St. Louis</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$71,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Northwestern University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$70,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Tufts University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$70,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Williams College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$69,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Worcester Polytechnic Institute</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$68,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Rensselaer Polytechnic Institute</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$66,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>University of Southern California</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$66,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Washington and Lee University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$66,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Grinnell College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$66,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>University of Chicago</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$65,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Georgetown University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$63,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>University of Portland</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$61,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Rochester Institute of Technology</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$60,000</td>
-                </tr>
-                <tr>
-                    <td>Boston College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$60,000</td>
-                </tr>
-                <tr>
-                    <td>Brigham Young University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$60,000</td>
-                </tr>
-                <tr>
-                    <td>Seattle University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$60,000</td>
-                </tr>
-                <tr>
-                    <td>University of Rochester</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$59,000</td>
-                </tr>
-                <tr>
-                    <td>Stevens Institute of Technology</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$59,000</td>
-                </tr>
-                <tr>
-                    <td>Emory University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$59,000</td>
-                </tr>
-                <tr>
-                    <td>University of California, Santa Barbara</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$58,000</td>
-                </tr>
-                <tr>
-                    <td>Brandeis University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$57,000</td>
-                </tr>
-                <tr>
-                    <td>Portland State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$57,000</td>
-                </tr>
-                <tr>
-                    <td>University of Connecticut</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$57,000</td>
-                </tr>
-                <tr>
-                    <td>Marist College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$57,000</td>
-                </tr>
-                <tr>
-                    <td>DePaul University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$57,000</td>
-                </tr>
-                <tr>
-                    <td>University of Arizona</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$57,000</td>
-                </tr>
-                <tr>
-                    <td>Colorado School of Mines</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$57,000</td>
-                </tr>
-                <tr>
-                    <td>Illinois Institute of Technology</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$57,000</td>
-                </tr>
-                <tr>
-                    <td>Lehigh University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$56,000</td>
-                </tr>
-                <tr>
-                    <td>University of Miami</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$56,000</td>
-                </tr>
-                <tr>
-                    <td>George Mason University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$56,000</td>
-                </tr>
-                <tr>
-                    <td>University of Massachusetts-Amherst</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$56,000</td>
-                </tr>
-                <tr>
-                    <td>Clarkson University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$56,000</td>
-                </tr>
-                <tr>
-                    <td>Sonoma State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$56,000</td>
-                </tr>
-                <tr>
-                    <td>Kettering University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$56,000</td>
-                </tr>
-                <tr>
-                    <td>Arizona State University Campus Immersion</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$56,000</td>
-                </tr>
-                <tr>
-                    <td>Utah Valley University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$56,000</td>
-                </tr>
-                <tr>
-                    <td>St Olaf College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>Carleton College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>Southern Methodist University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>Boise State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>Northern Arizona University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>California Polytechnic State University-San Luis Obispo</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>University of California-Davis</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>University of California-Irvine</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>University of California-Los Angeles</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>University of California-Riverside</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>University of California-Santa Cruz</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>California State University-Fullerton</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>California State University-Long Beach</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>California State University-Northridge</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>San Jose State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>San Francisco State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>San Diego State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>California State University-Sacramento</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>California State University-East Bay</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>California State University-Chico</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>California State University-San Bernardino</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$54,000</td>
-                </tr>
-                <tr>
-                    <td>Bloomsburg University of Pennsylvania</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$54,000</td>
-                </tr>
-                <tr>
-                    <td>California Lutheran University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$54,000</td>
-                </tr>
-                <tr>
-                    <td>Plymouth State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$54,000</td>
-                </tr>
-                <tr>
-                    <td>University of Wisconsin-Milwaukee</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$54,000</td>
-                </tr>
-                <tr>
-                    <td>University of Hawaii at Hilo</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$54,000</td>
-                </tr>
-                <tr>
-                    <td>University of Central Missouri</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$54,000</td>
-                </tr>
-                <tr>
-                    <td>The University of Tennessee-Chattanooga</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$54,000</td>
-                </tr>
-                <tr>
-                    <td>University of New Orleans</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$54,000</td>
-                </tr>
-                <tr>
-                    <td>CUNY Lehman College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$54,000</td>
-                </tr>
-                <tr>
-                    <td>Southern Illinois University-Carbondale</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$54,000</td>
-                </tr>
-                <tr>
-                    <td>Pennsylvania State University-Main Campus</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$54,000</td>
-                </tr>
-                <tr>
-                    <td>Georgia College & State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$54,000</td>
-                </tr>
-                <tr>
-                    <td>Southeastern Louisiana University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$53,000</td>
-                </tr>
-                <tr>
-                    <td>University of Vermont</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$53,000</td>
-                </tr>
-                <tr>
-                    <td>University of Wisconsin-Parkside</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$53,000</td>
-                </tr>
-                <tr>
-                    <td>Northeastern Illinois University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$53,000</td>
-                </tr>
-                <tr>
-                    <td>University of Louisiana at Lafayette</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$53,000</td>
-                </tr>
-                <tr>
-                    <td>CUNY Hunter College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$53,000</td>
-                </tr>
-                <tr>
-                    <td>Louisiana State University and Agricultural & Mechanical College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$52,000</td>
-                </tr>
-                <tr>
-                    <td>Seton Hill University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$52,000</td>
-                </tr>
-                <tr>
-                    <td>University of Southern Indiana</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$52,000</td>
-                </tr>
-                <tr>
-                    <td>University of Michigan-Flint</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$52,000</td>
-                </tr>
-                <tr>
-                    <td>Augustana College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$52,000</td>
-                </tr>
-                <tr>
-                    <td>California State University-Fresno</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$52,000</td>
-                </tr>
-                <tr>
-                    <td>Middle Tennessee State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$52,000</td>
-                </tr>
-                <tr>
-                    <td>Hood College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$51,000</td>
-                </tr>
-                <tr>
-                    <td>Louisiana Tech University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$51,000</td>
-                </tr>
-                <tr>
-                    <td>John Carroll University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$51,000</td>
-                </tr>
-                <tr>
-                    <td>California State Polytechnic University-Humboldt</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$51,000</td>
-                </tr>
-                <tr>
-                    <td>Western Carolina University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$51,000</td>
-                </tr>
-                <tr>
-                    <td>Murray State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$51,000</td>
-                </tr>
-                <tr>
-                    <td>Georgia Southwestern State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$51,000</td>
-                </tr>
-                <tr>
-                    <td>Central Washington University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$50,000</td>
-                </tr>
-                <tr>
-                    <td>Southern Utah University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$50,000</td>
-                </tr>
-                <tr>
-                    <td>Messiah University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$50,000</td>
-                </tr>
-                <tr>
-                    <td>California State University-Bakersfield</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$49,000</td>
-                </tr>
-                <tr>
-                    <td>Indiana University-South Bend</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$49,000</td>
-                </tr>
-                <tr>
-                    <td>California State University-Stanislaus</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$48,000</td>
-                </tr>
-                <tr>
-                    <td>Youngstown State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$48,000</td>
-                </tr>
-                <tr>
-                    <td>University of Memphis</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$48,000</td>
-                </tr>
-                <tr>
-                    <td>University of Hawaii at Manoa</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$48,000</td>
-                </tr>
-                <tr>
-                    <td>McNeese State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$47,000</td>
-                </tr>
-                <tr>
-                    <td>Hawaii Pacific University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$47,000</td>
-                </tr>
-                <tr>
-                    <td>Eckerd College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$47,000</td>
-                </tr>
-                <tr>
-                    <td>The University of Tennessee-Martin</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$47,000</td>
-                </tr>
-                <tr>
-                    <td>Biola University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$47,000</td>
-                </tr>
-                <tr>
-                    <td>Jackson State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$47,000</td>
-                </tr>
-                <tr>
-                    <td>Elizabeth City State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$45,000</td>
-                </tr>
-                <tr>
-                    <td>University of North Carolina at Pembroke</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$43,000</td>
-                </tr>
-                <tr>
-                    <td>Tennessee State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$43,000</td>
-                </tr>
-                <tr>
-                    <td>The University of Texas Rio Grande Valley</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$43,000</td>
-                </tr>
-                <tr>
-                    <td>Wofford College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$43,000</td>
-                </tr>
-                <tr>
-                    <td>Cornell College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$43,000</td>
-                </tr>
-                <tr>
-                    <td>Lewis University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$43,000</td>
-                </tr>
-                <tr>
-                    <td>University of Puget Sound</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$42,000</td>
-                </tr>
-                <tr>
-                    <td>CUNY York College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$42,000</td>
-                </tr>
-                <tr>
-                    <td>California State University-Los Angeles</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$42,000</td>
-                </tr>
-                <tr>
-                    <td>Fayetteville State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$40,000</td>
-                </tr>
-                <tr>
-                    <td>Southern University and A & M College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$33,000</td>
-                </tr>
-                <tr>
-                    <td>Winston-Salem State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$32,000</td>
-                </tr>
-                <tr>
-                    <td>Georgia Institute of Technology</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$78,000</td>
-                </tr>
-                <tr>
-                    <td>University of Texas at Austin</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$76,000</td>
-                </tr>
-                <tr>
-                    <td>University of Michigan-Ann Arbor</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$75,000</td>
-                </tr>
-                <tr>
-                    <td>University of Maryland-College Park</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$74,000</td>
-                </tr>
-                <tr>
-                    <td>University of Wisconsin-Madison</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$73,000</td>
-                </tr>
-                <tr>
-                    <td>University of North Carolina at Chapel Hill</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$72,000</td>
-                </tr>
-                <tr>
-                    <td>Virginia Tech</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$71,000</td>
-                </tr>
-                <tr>
-                    <td>Texas A&M University-College Station</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$70,000</td>
-                </tr>
-                <tr>
-                    <td>Pennsylvania State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$69,000</td>
-                </tr>
-                <tr>
-                    <td>Ohio State University-Main Campus</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$68,000</td>
-                </tr>
-                <tr>
-                    <td>University of Minnesota-Twin Cities</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$67,000</td>
-                </tr>
-                <tr>
-                    <td>University of Florida</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$66,000</td>
-                </tr>
-                <tr>
-                    <td>University of Georgia</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$65,000</td>
-                </tr>
-                <tr>
-                    <td>University of Virginia</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$64,000</td>
-                </tr>
-                <tr>
-                    <td>North Carolina State University at Raleigh</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$63,000</td>
-                </tr>
-                <tr>
-                    <td>Clemson University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$62,000</td>
-                </tr>
-                <tr>
-                    <td>Auburn University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$61,000</td>
-                </tr>
-                <tr>
-                    <td>University of South Carolina-Columbia</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$60,000</td>
-                </tr>
-                <tr>
-                    <td>University of Alabama</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$59,000</td>
-                </tr>
-                <tr>
-                    <td>Mississippi State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$58,000</td>
-                </tr>
-                <tr>
-                    <td>University of Mississippi</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$57,000</td>
-                </tr>
-                <tr>
-                    <td>University of Arkansas</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$56,000</td>
-                </tr>
-                <tr>
-                    <td>Louisiana State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$55,000</td>
-                </tr>
-                <tr>
-                    <td>University of Oklahoma</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$54,000</td>
-                </tr>
-                <tr>
-                    <td>Oklahoma State University-Main Campus</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$53,000</td>
-                </tr>
-                <tr>
-                    <td>University of Kansas</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$52,000</td>
-                </tr>
-                <tr>
-                    <td>Kansas State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$51,000</td>
-                </tr>
-                <tr>
-                    <td>Iowa State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$50,000</td>
-                </tr>
-                <tr>
-                    <td>University of Iowa</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$49,000</td>
-                </tr>
-                <tr>
-                    <td>University of Nebraska-Lincoln</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$48,000</td>
-                </tr>
-                <tr>
-                    <td>University of Missouri-Columbia</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$47,000</td>
-                </tr>
-                <tr>
-                    <td>University of Colorado Boulder</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$46,000</td>
-                </tr>
-                <tr>
-                    <td>Colorado State University-Fort Collins</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$45,000</td>
-                </tr>
-                <tr>
-                    <td>University of Wyoming</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$44,000</td>
-                </tr>
-                <tr>
-                    <td>Montana State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$43,000</td>
-                </tr>
-                <tr>
-                    <td>University of Montana</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$42,000</td>
-                </tr>
-                <tr>
-                    <td>University of North Dakota</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$41,000</td>
-                </tr>
-                <tr>
-                    <td>North Dakota State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$40,000</td>
-                </tr>
-                <tr>
-                    <td>South Dakota State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$39,000</td>
-                </tr>
-                <tr>
-                    <td>University of South Dakota</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$38,000</td>
-                </tr>
-                <tr>
-                    <td>University of Idaho</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$37,000</td>
-                </tr>
-                <tr>
-                    <td>Boise State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$36,000</td>
-                </tr>
-                <tr>
-                    <td>University of Nevada-Reno</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$35,000</td>
-                </tr>
-                <tr>
-                    <td>University of Nevada-Las Vegas</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$34,000</td>
-                </tr>
-                <tr>
-                    <td>University of New Mexico</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$33,000</td>
-                </tr>
-                <tr>
-                    <td>New Mexico State University-Main Campus</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$32,000</td>
-                </tr>
-                <tr>
-                    <td>University of Utah</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$31,000</td>
-                </tr>
-                <tr>
-                    <td>Utah State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$30,000</td>
-                </tr>
-                <tr>
-                    <td>Brigham Young University-Idaho</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$29,000</td>
-                </tr>
-                <tr>
-                    <td>Weber State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$28,000</td>
-                </tr>
-                <tr>
-                    <td>Southern Utah University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$27,000</td>
-                </tr>
-                <tr>
-                    <td>Dixie State University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$26,000</td>
-                </tr>
-                <tr>
-                    <td>Utah Valley University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$25,000</td>
-                </tr>
-                <tr>
-                    <td>Snow College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$24,000</td>
-                </tr>
-                <tr>
-                    <td>Salt Lake Community College</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$23,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>University of Alaska Anchorage</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$22,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>University of Alaska Fairbanks</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$21,000</td>
-                    <td class="number salary">—</td>
-                </tr>
-                <tr>
-                    <td>Alaska Pacific University</td>
-                    <td class="country">USA</td>
-                    <td class="number salary">$20,000</td>
-                    <td class="number salary">—</td>
+                    <td class="major">General Bachelor's (BA/BSc)</td>
+                    <td class="score">2.5 / 10</td>
+                    <td class="why">Minimal labor-market pricing power</td>
                 </tr>
             </tbody>
         </table>
+
+        <p style="margin-top: 30px; color: #54595d; font-size: 0.9em; font-style: italic;">
+            Score = how well the major alone predicts income (out of 10)<br>
+            Early–mid career (~0–7 years), normal outcomes
+        </p>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Ensure all rows have 4 columns (add engineering column if missing) - MUST RUN FIRST
-            const table = document.getElementById('canadianTable');
-            if (table) {
-                const rows = table.querySelectorAll('tbody tr');
-                
-                // Function to calculate Engineering median from USDOE Engineering 2023 data
-                function calculateEngineeringMedian(usdoeEng2023) {
-                    if (!usdoeEng2023 || usdoeEng2023 === 0) return null;
-                    const U = usdoeEng2023 * 1.061; // 2025 adjustment
-                    const Ce = 70000; // Canadian engineering anchor
-                    const pe = 0.25; // U.S. pull percentage
-                    const median = Ce + 0.5 * pe * (U - Ce);
-                    return Math.round(median / 1000) * 1000; // Round to nearest 1000
-                }
-                
-                rows.forEach(row => {
-                    // Add engineering column if missing
-                    if (row.cells.length === 3) {
-                        const engineeringCell = document.createElement('td');
-                        engineeringCell.className = 'number salary';
-                        engineeringCell.textContent = '—';
-                        row.appendChild(engineeringCell);
-                    }
-                    
-                    const engCell = row.cells[3] || row.cells[row.cells.length - 1];
-                    
-                    // Calculate Engineering median if USDOE Engineering data is available
-                    const engDataAttr = row.getAttribute('data-eng-usdoe-2023');
-                    if (engDataAttr) {
-                        const engMedian = calculateEngineeringMedian(parseFloat(engDataAttr));
-                        if (engMedian && engCell) {
-                            engCell.textContent = '$' + engMedian.toLocaleString();
-                        }
-                    } else {
-                        // Estimate Engineering median from CS median (Engineering typically 5-7k lower)
-                        const csCell = row.cells[2];
-                        if (csCell && csCell.textContent.includes('$') && engCell && engCell.textContent === '—') {
-                            const csMedian = parseFloat(csCell.textContent.replace(/[$,]/g, ''));
-                            if (csMedian && !isNaN(csMedian) && csMedian > 0) {
-                                // Estimate: Engineering Canadian median ≈ CS median - 6000 (rounded)
-                                // This accounts for lower anchor (70k vs 75k) and lower pull (0.25 vs 0.30)
-                                const estimatedEngMedian = Math.round((csMedian - 6000) / 1000) * 1000;
-                                if (estimatedEngMedian > 0) {
-                                    engCell.textContent = '$' + estimatedEngMedian.toLocaleString();
-                                    engCell.style.color = '#888';
-                                    engCell.style.fontStyle = 'italic';
-                                    engCell.title = 'Estimated from CS data (Engineering typically ~$6k lower)';
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-            
-            // Initialize sorting for the Canadian Citizen Outcomes table
-            initializeTableSorting('canadianTable', {
-                'institution': 0,
-                'country': 1,
-                'salary': 2,
-                'engineering': 3
-            });
-
-            function initializeTableSorting(tableId, columnMap) {
-                const table = document.getElementById(tableId);
-                if (!table) return;
-                
-                const headers = table.querySelectorAll('th.sortable');
-                let currentSort = { column: null, direction: 'asc' };
-
-                headers.forEach(header => {
-                    header.addEventListener('click', function() {
-                        const column = this.dataset.sort;
-                        const tbody = table.querySelector('tbody');
-                        const rows = Array.from(tbody.querySelectorAll('tr'));
-
-                        // Determine sort direction
-                        let direction = 'asc';
-                        if (currentSort.column === column && currentSort.direction === 'asc') {
-                            direction = 'desc';
-                        }
-
-                        // Remove sort classes from all headers in this table
-                        headers.forEach(h => {
-                            h.classList.remove('sort-asc', 'sort-desc');
-                        });
-
-                        // Add sort class to current header
-                        this.classList.add(`sort-${direction}`);
-                        currentSort = { column, direction };
-
-                        // Sort rows
-                        rows.sort((a, b) => {
-                            const colIndex = columnMap[column];
-                            const aCell = a.cells[colIndex];
-                            const bCell = b.cells[colIndex];
-                            
-                            // Safety check - ensure cells exist
-                            if (!aCell || !bCell) return 0;
-                            
-                            const aValue = aCell.textContent.trim();
-                            const bValue = bCell.textContent.trim();
-
-                            let comparison = 0;
-
-                            if (column === 'institution' || column === 'country') {
-                                // String comparison
-                                comparison = aValue.localeCompare(bValue);
-                            } else if (column === 'grads' || column === 'salary' || column === 'engineering') {
-                                // Number comparison - handle ~ prefix, $ signs, and — (dash)
-                                if (aValue === '—' || aValue === '-') {
-                                    aValue = '0';
-                                }
-                                if (bValue === '—' || bValue === '-') {
-                                    bValue = '0';
-                                }
-                                const aNum = parseFloat(aValue.replace(/[~$,]/g, '')) || 0;
-                                const bNum = parseFloat(bValue.replace(/[~$,]/g, '')) || 0;
-                                comparison = aNum - bNum;
-                            }
-
-                            return direction === 'asc' ? comparison : -comparison;
-                        });
-
-                        // Reorder rows in DOM
-                        rows.forEach(row => tbody.appendChild(row));
-                    });
-                });
-            }
-        });
-    </script>
 </body>
 </html>
